@@ -3,7 +3,8 @@ import { check, sleep } from 'k6';
 import { Rate } from 'k6/metrics';
 
 // Target URL (can be configured via environment variables)
-const TARGET_URL = __ENV.TARGET_URL || 'http://localhost:4000/main/evm/1';
+// const TARGET_URL = __ENV.TARGET_URL || 'http://localhost:4000/main/evm/1';
+const TARGET_URL = __ENV.TARGET_URL || 'https://c570.us-west.gcp.erpc.cloud/main/evm/137';
 
 // Traffic pattern weights (in percentage, should sum to 100)
 const TRAFFIC_PATTERNS = {
@@ -32,9 +33,9 @@ export const options = {
   scenarios: {    
     constant_request_rate: {
       executor: 'constant-arrival-rate',
-      rate: 10,
+      rate: 100,
       timeUnit: '1s',
-      duration: '10m',
+      duration: '100m',
       preAllocatedVUs: 500,
       maxVUs: 500,
     },
