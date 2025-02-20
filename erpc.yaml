@@ -1,0 +1,7 @@
+logLevel: debug
+projects:
+  - id: main
+    upstreams:
+      - endpoint: ${TENDERLY}
+      - endpoint: alchemy://${ALCHEMY_API_KEY} # Add all supported chains of alchemy.com
+      - endpoint: repository://evm-public-endpoints.erpc.cloud
